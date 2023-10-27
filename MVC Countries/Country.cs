@@ -23,11 +23,11 @@ namespace MVC_Countries
         public List<string> Colors { get;} = new List<string>();
 
         public Country() { }
-        public Country(string name, Continent continent, List<string> colors)
+        public Country(string name, Continent continent, params string[] colors)
         {
             Name = name;
             Continent = continent;
-            Colors = colors;
+            Colors = colors.ToList();
         }
     }
 

@@ -8,12 +8,12 @@ namespace MVC_Countries
 {
     public class CountryView
     {
+        public Country DisplayCountry {  get; set; }
         public CountryView(Country displayCountry)
         {
             DisplayCountry = displayCountry;
         }
 
-        public Country DisplayCountry {  get; set; }
 
         public void Display()
         {
@@ -22,8 +22,10 @@ namespace MVC_Countries
             Console.WriteLine("Colors: ");
             foreach (string color in DisplayCountry.Colors) 
             { 
-            Console.Write(color + ", ");
+                Console.ForegroundColor = Enum.Parse<ConsoleColor>(color);
+                Console.Write(color + " ");
             }
+            Console.ForegroundColor= ConsoleColor.Gray;
             Console.WriteLine();
         }
     }

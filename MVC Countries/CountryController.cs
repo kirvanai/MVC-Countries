@@ -8,7 +8,14 @@ namespace MVC_Countries
 {
     public class CountryController
     {
-        List<Country> CountryDB = new List<Country>();
+        List<Country> CountryDB = new List<Country>() 
+        { 
+            new Country("France", Continent.Europe, "Red", "White", "Blue"),
+            new Country("Brazil", Continent.SouthAmerica, "Blue", "Yellow", "Green"),
+            new Country("United States of America", Continent.NorthAmerica, "Red", "White", "Blue"),
+            new Country("Japan", Continent.Asia, "Red", "White") 
+        };
+        
 
         public void CountryAction(Country c)
         {
@@ -16,21 +23,7 @@ namespace MVC_Countries
             cv.Display();
         }
 
-        public CountryController()
-        {
-            List<string> franceColors = new List<string> { "red", "white", "blue" };
-            Country france = new Country("France", Continent.Europe, franceColors);
-            CountryDB.Add(france);
-            List<string> brazilColors = new List<string> { "blue", "yellow", "blue" };
-            Country brazil = new Country("Brazil", Continent.SouthAmerica, brazilColors);
-            CountryDB.Add(brazil);
-            List<string> usaColors = new List<string> { "red", "white", "blue" };
-            Country USA = new Country("United States of America", Continent.NorthAmerica, usaColors);
-            CountryDB.Add(USA);
-            List<string> japanColors = new List<string> { "red", "white"};
-            Country japan = new Country("Japan", Continent.Asia, japanColors);
-            CountryDB.Add(japan);
-        }
+
         public void WelcomeAction()
         {
             CountryListView clv = new CountryListView(CountryDB);

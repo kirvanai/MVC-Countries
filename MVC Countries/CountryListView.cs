@@ -13,7 +13,7 @@ namespace MVC_Countries
             Countries = countries;
         }
 
-        public List<Country> Countries = new List<Country>(); 
+        public List<Country> Countries { get; set; } = new List<Country>(); 
 
         public void Display()
         {
